@@ -1,19 +1,5 @@
 const express = require('express')
-
-const users = [
-  {
-    name:"Arthurito",
-    b_day:"28/02/2007"
-  },
-  {
-    name:"Arthurzinhi",
-    b_day:"28/02/2007"
-  },
-  {
-    name:"Artie",
-    b_day:"28/02/2007"
-  },
-]
+const nodes = require('./db.js').nodes
 
 const app = express();
 app.use(express.json());
@@ -24,6 +10,6 @@ app.listen(PORT, () => {
   console.log("Server Listening on PORT:", PORT);
 });
 
-app.get('/users', (req, res) => {
-  res.send({users})
+app.get('/la', (req, res) => {
+  res.send({nodes})
 });
