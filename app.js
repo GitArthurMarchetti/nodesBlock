@@ -1,5 +1,6 @@
 const express = require('express')
 const nodes = require('./db.js').nodes
+const client = require('./db.js').client
 
 const app = express();
 app.use(express.json());
@@ -10,6 +11,7 @@ app.listen(PORT, () => {
   console.log("Server Listening on PORT:", PORT);
 });
 
-app.get('/la', (req, res) => {
-  res.send({nodes})
+app.get('/', async (req, res) => {
+  const data = (await client.query("SELECT * FROM node")).rows;
+  res.send(data)
 });
