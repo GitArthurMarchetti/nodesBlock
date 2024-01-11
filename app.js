@@ -11,7 +11,7 @@ app.listen(PORT, () => {
   console.log("Server Listening on PORT:", PORT);
 });
 
-app.get('/', async (req, res) => {
+app.get('/', async (req, res) => { // Request: O pedido do usuario; Response: O resultado enviado segundo o pedido;
   const data = (await client.query("SELECT * FROM node")).rows;
-  res.send(data)
+  res.send("<h1> a</h1>")
 });
